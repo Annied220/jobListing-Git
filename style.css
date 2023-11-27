@@ -1,0 +1,105 @@
+*,
+*::after,
+*::before {
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html {
+    height: 100vh; 
+    width: 100vw; 
+}
+
+:root {
+    --light-cyan:hsl(180, 52%, 96%);
+    --dark-cyan: hsl(180, 8%, 52%);
+    --filter-tab: hsl(180, 31%, 95%);
+    --very-dark-cyan: hsl(180, 14%, 20%);
+
+}
+
+body {
+    height: 100%; 
+    width: 80%; 
+    margin: 0 auto;
+    display: flex;  
+    flex-direction: column;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 15px;
+    background-color: var(--light-cyan);
+
+}
+
+header {
+    background: var(--dark-cyan) url('./images//bg-header-mobile.svg');
+    height: 100px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Job Listing */
+.each-job-listing {
+   display: flex;
+   flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    margin-bottom: 10px;
+    box-shadow:1, 1, 1 ,hsl(180, 8%, 52%);
+    gap: 20px;
+}
+
+.job-image {
+  width: 50px;
+  height: 50px;
+
+}
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+.job-company {
+    color: var(--dark-cyan)
+}
+.job-position {
+    font-weight: 700;
+}
+.job-language {
+    padding: 10px; 
+    
+    background-color: var(--light-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.job-company-row {
+    font-weight: 700;
+
+    display:flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.show-new, .show-featured {
+    text-transform: uppercase;
+    border-radius: 15px;
+    color: white;
+    padding: 5px 5px;
+
+}
+
+.show-new {
+    background-color: var(--dark-cyan)
+
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}

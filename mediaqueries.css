@@ -1,0 +1,5 @@
+@media screen and (mix-width: 430px) {
+    header {
+        background: var(--dark-cyan) url('./images/bg-header-desktop.svg');
+    }
+}
