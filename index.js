@@ -35,7 +35,7 @@ function renderListing(item) {
                 </div>
             </div>
 
-            <div class="job-language" id="language-el">
+            <div class="job-language" id="language-el-">
             ${language} 
             
             ${tool}</div>
@@ -44,7 +44,7 @@ function renderListing(item) {
         `
     }}
         console.log(item.tools)
-    if(item.new == false) {
+    if(item.new === false) {
         document.getElementById("show-new").style.display = 'none'
     }
     if (!item.featured) {
