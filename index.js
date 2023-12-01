@@ -1,21 +1,18 @@
 import data from './data.json' assert { type: 'json' };
 
 const jobListingEl = document.getElementById("listing-items")
-console.log(data);
+let tags = []
 
+renderJobListings(data)
 
-for (let eachjob of data) {
-    console.log(eachjob)
-
-    renderListing(eachjob)
+function renderJobListings(listings){
+    jobListingEl.innerHTML = ""
+    listings.forEach(renderList)
 }
+function renderList(item, itemIndex) {
 
+    let buttonLabels = [...item.role, ...item.languages, item.tools]
 
-function renderListing(item) {
-
-    for ( let language of item.languages){
-        for(let tool of item.tools) {
-    
     jobListingEl.innerHTML += 
     `
         <div class="each-job-listing">
@@ -24,8 +21,10 @@ function renderListing(item) {
             <div class="job-details">
                 <div class="job-company-row">
                     <div class="job-company">${item.company}</div>
-                    <div class="show-new" id="show-new">New!</div>
-                    <div class="show-featured" id="show-featured">Featured</div>
+                   ${item.new ? 
+                    ` <div class="new">New!</div>` : ""}
+                    ${item.featured ? 
+                        ` <div class="featured">Featured</div>` : ""}
                 </div>
                 <div class="job-position">${item.position}</div>
                 <div class="post-details">
@@ -35,21 +34,22 @@ function renderListing(item) {
                 </div>
             </div>
 
-            <div class="job-language" id="language-el-">
-            ${language} 
-            
-            ${tool}</div>
+            <div class="tag-labels" id="tag-label-${itemIndex}"></div>
         </div>
+    `
+    setTimeout(() => {
 
-        `
-    }}
-        console.log(item.tools)
-    if(item.new === false) {
-        document.getElementById("show-new").style.display = 'none'
-    }
-    if (!item.featured) {
-        document.getElementById("show-featured").style.display = 'none'
+        let labelEl = document.querySelector('#tag-label-'+itemIndex)
+        buttonLabels.forEach((label, labelIndex) => {
+            //Create Element
+            let button = document.createElement('button')
+            //Modify Element
+            button.classList.add = 'label-button'
+            labelEl.innerText = label
+            //Append Element
+            labelEl.append(button)
+        })
+    }, 10)
 
     }
     
-}
