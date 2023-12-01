@@ -11,7 +11,7 @@ function renderJobListings(listings){
 }
 function renderList(item, itemIndex) {
 
-    let buttonLabels = [...item.role, ...item.languages, item.tools]
+    let buttonLabels = [item.role, ...item.languages, ...item.tools]
 
     jobListingEl.innerHTML += 
     `
