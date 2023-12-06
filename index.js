@@ -1,9 +1,14 @@
-import data from './data.json' assert { type: 'json' };
+import data from './data.js'
 
 const jobListingEl = document.getElementById("listing-items")
 let tags = []
 
 renderJobListings(data)
+
+function handleClick(label) {
+    tags.push(label)
+    console.log(tags)
+}
 
 function renderJobListings(listings){
     jobListingEl.innerHTML = ""
@@ -45,9 +50,12 @@ function renderList(item, itemIndex) {
             let button = document.createElement('button')
             //Modify Element
             button.classList.add = 'label-button'
-            labelEl.innerText = label
+            button.innerText = label
             //Append Element
             labelEl.append(button)
+            button.addEventListener('click', function() {
+                handleClick(label)
+            })
         })
     }, 10)
 

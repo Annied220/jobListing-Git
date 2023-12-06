@@ -97,6 +97,14 @@ header {
 
 }
 
+.tag-labels {
+    color: green;
+}
+
+.label-button {
+    padding: 0 20px;
+}
+
 footer{
     width: 100%;
     display: flex;
